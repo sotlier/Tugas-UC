@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "#7570b3", "size": 40}, "encoding": {"tooltip": [{"field": "Relationship_status", "title": "Status Hubungan", "type": "nominal"}, {"field": "Percentage", "format": ".2f", "title": "Persentase Depresi (%)", "type": "quantitative"}, {"field": "Yes_Count", "title": "Jumlah Depresi (Ya)", "type": "quantitative"}, {"field": "Total", "title": "Total Mahasiswa", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "Relationship_status", "sort": ["Single", "Complicated", "In a Relationship"], "title": "Status Hubungan", "type": "nominal"}, "y": {"field": "Percentage", "scale": {"domain": [0, 45]}, "title": "Tingkat Depresi (%)", "type": "quantitative"}}}, {"mark": {"type": "text", "align": "center", "baseline": "bottom", "dy": -5, "fontSize": 11, "fontWeight": "bold"}, "encoding": {"text": {"field": "Percentage", "format": ".1f", "type": "quantitative"}, "tooltip": [{"field": "Relationship_status", "title": "Status Hubungan", "type": "nominal"}, {"field": "Percentage", "format": ".2f", "title": "Persentase Depresi (%)", "type": "quantitative"}, {"field": "Yes_Count", "title": "Jumlah Depresi (Ya)", "type": "quantitative"}, {"field": "Total", "title": "Total Mahasiswa", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "Relationship_status", "sort": ["Single", "Complicated", "In a Relationship"], "title": "Status Hubungan", "type": "nominal"}, "y": {"field": "Percentage", "scale": {"domain": [0, 45]}, "title": "Tingkat Depresi (%)", "type": "quantitative"}}}], "data": {"name": "data-bfdfdd08f622698c173b9011c89571bd"}, "height": 300, "title": {"text": "Tingkat Depresi Mahasiswa Berdasarkan Status Hubungan", "fontSize": 14, "subtitle": "Persentase kasus depresi (\"Yes\") berdasarkan status hubungan sosial", "subtitleFontSize": 11}, "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-bfdfdd08f622698c173b9011c89571bd": [{"Relationship_status": "Complicated", "Total": 204, "Yes_Count": 27, "Percentage": 13.24}, {"Relationship_status": "In a Relationship", "Total": 1457, "Yes_Count": 167, "Percentage": 11.46}, {"Relationship_status": "Single", "Total": 2803, "Yes_Count": 1007, "Percentage": 35.93}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
