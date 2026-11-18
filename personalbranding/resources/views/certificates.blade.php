@@ -10,8 +10,7 @@
                             <div class="ratio" style="--bs-aspect-ratio: 70.7%;">
                                 <iframe
                                     src="{{ $pdfUrl }}#page=1&view=FitH&toolbar=0&navpanes=0"
-                                    title="Preview of {{ $certificate['title'] }} certificate"
-                                    loading="lazy"></iframe>
+                                    title="Preview of {{ $certificate['title'] }} certificate"></iframe>
                             </div>
                             <div class="card-body p-4">
                                 <p class="text-primary fw-semibold mb-1">{{ $certificate['issuer'] }} &middot; {{ $certificate['issued_at'] }}</p>
