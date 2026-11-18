@@ -43,7 +43,9 @@ test('the certificates page shows both course certificates', function () {
         ->assertSee('24 August 2024')
         ->assertSee('18 January 2025')
         ->assertSee('certificate-files/software-engineering.pdf')
-        ->assertSee('certificate-files/digital-marketing.pdf');
+        ->assertSee('certificate-files/digital-marketing.pdf')
+        ->assertSee('certificate-files/software-engineering-preview.png')
+        ->assertSee('certificate-files/digital-marketing-preview.png');
 });
 
 test('the footer uses the configured social profile links', function () {

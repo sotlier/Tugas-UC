@@ -7,11 +7,10 @@
                     @php($pdfUrl = asset($certificate['file']))
                     <div class="col-lg-6">
                         <article class="card border-0 shadow-sm h-100">
-                            <div class="ratio" style="--bs-aspect-ratio: 70.7%;">
-                                <iframe
-                                    src="{{ $pdfUrl }}#page=1&view=FitH&toolbar=0&navpanes=0"
-                                    title="Preview of {{ $certificate['title'] }} certificate"></iframe>
-                            </div>
+                            <img
+                                src="{{ asset($certificate['preview']) }}"
+                                class="card-img-top"
+                                alt="{{ $certificate['title'] }} certificate preview">
                             <div class="card-body p-4">
                                 <p class="text-primary fw-semibold mb-1">{{ $certificate['issuer'] }} &middot; {{ $certificate['issued_at'] }}</p>
                                 <h3 class="h5 fw-semibold">{{ $certificate['title'] }}</h3>

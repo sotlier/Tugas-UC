@@ -39,6 +39,7 @@ return [
             'issued_at' => '24 August 2024',
             'description' => 'Certificate of achievement for completing the Full Stack Software Engineering course.',
             'file' => 'certificate-files/software-engineering.pdf',
+            'preview' => 'certificate-files/software-engineering-preview.png',
         ],
         [
             'title' => 'Full Stack Digital Marketing',
@@ -46,6 +47,7 @@ return [
             'issued_at' => '18 January 2025',
             'description' => 'Certificate of achievement for completing the Full Stack Digital Marketing course.',
             'file' => 'certificate-files/digital-marketing.pdf',
+            'preview' => 'certificate-files/digital-marketing-preview.png',
         ],
     ],
 ];
