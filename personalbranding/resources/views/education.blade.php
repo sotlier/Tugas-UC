@@ -19,7 +19,7 @@
                 @endforeach
             </div>
             <div class="text-center mt-4">
-                <a href="{{ route('home') }}" class="btn btn-primary">Back to Home</a>
+                <a href="{{ route('home') }}" class="btn btn-primary">Back to Homes</a>
             </div>
         </div>
     </section>
