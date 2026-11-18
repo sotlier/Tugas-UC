@@ -2,59 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
 use Illuminate\View\View;
 
 class HomeController extends Controller
 {
     public function __invoke(): View
     {
-        $projects = Project::query()->orderBy('sort_order')->get();
+        $instagramUrl = config('personal_branding.instagram_url');
+        $instagramUsername = config('personal_branding.instagram_username');
 
         $profile = [
-            'name' => 'Alex Morgan',
-            'title' => 'Full-Stack Web Developer',
-            'tagline' => 'I craft clean, user-focused digital experiences with Laravel, modern PHP, and thoughtful design.',
+            'name' => 'Ardy',
+            'avatar' => 'https://softpfp.com/wp-content/uploads/2026/06/Funny-profile-pictures-pinterest-1.webp',
+            'title' => 'Student at Universitas Ciputra Surabaya',
+            'tagline' => 'I am a denim crafter, a father, and a student at UC Surabaya.',
             'location' => 'Jakarta, Indonesia',
-            'email' => 'hello@example.com',
-            'about' => 'I am a passionate developer who enjoys turning ideas into reliable, elegant web applications. With a strong foundation in backend development and an eye for clean UI, I focus on building products that are fast, accessible, and easy to maintain.',
+            'email' => 'ardy.henjaya@gmail.com',
+            'about' => 'I am an entrepreneur with over 10 years of experience running a wholesale clothing business. Currently pursuing a degree in technology to sharpen my technical skills, I bridge real-world commercial expertise with modern software development to build fast, reliable, and user-friendly web applications.',
             'about_details' => [
-                'experience' => '3+ Years Experience',
-                'projects' => '20+ Projects Delivered',
-                'focus' => 'Laravel & Bootstrap',
+                'education' => 'Personality, Public Relations, Fashion Design, Software Engineering & Digital Marketing',
+                'projects' => '5+ Student Group Projects Delivered',
+                'focus' => 'Laravel, Bootstrap, React, and RESTful APIs',
             ],
-            'socials' => [
-                ['label' => 'GitHub', 'url' => 'https://github.com/', 'icon' => 'bi-github'],
-                ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/', 'icon' => 'bi-linkedin'],
-                ['label' => 'Instagram', 'url' => 'https://www.instagram.com/', 'icon' => 'bi-instagram'],
-            ],
+            'socials' => config('personal_branding.socials'),
             'skills' => [
-                ['name' => 'Laravel & PHP', 'level' => 90],
-                ['name' => 'Bootstrap & UI Design', 'level' => 88],
-                ['name' => 'JavaScript', 'level' => 80],
-                ['name' => 'MySQL / SQLite', 'level' => 85],
-                ['name' => 'REST APIs', 'level' => 82],
-                ['name' => 'Git & Collaboration', 'level' => 86],
+                ['name' => 'Laravel & PHP', 'level' => 30],
+                ['name' => 'Bootstrap & UI Design', 'level' => 80],
+                ['name' => 'JavaScript', 'level' => 70],
+                ['name' => 'MySQL / SQLite', 'level' => 65],
+                ['name' => 'REST APIs', 'level' => 70],
+                ['name' => 'Git & Collaboration', 'level' => 70],
             ],
             'experiences' => [
                 [
-                    'role' => 'Full-Stack Developer',
-                    'company' => 'Freelance & Personal Projects',
-                    'period' => '2023 - Present',
-                    'description' => 'Designing and developing personal branding sites, business websites, and web applications with Laravel and Bootstrap.',
+                    'role' => 'Mandarin Teacher',
+                    'company' => 'AI-XIN MANDARIN SCHOOL',
+                    'period' => '2009 - 2009',
+                    'description' => 'Taught Mandarin at AI-XIN MANDARIN SCHOOL.',
                 ],
                 [
-                    'role' => 'Web Development Student',
-                    'company' => 'University Projects',
-                    'period' => '2021 - 2023',
-                    'description' => 'Built academic and collaborative projects focused on CRUD systems, responsive interfaces, and clean code practices.',
+                    'role' => 'Executive Marketing',
+                    'company' => 'PT. TIGA DUA PROPERTY',
+                    'period' => '2009 - 2010',
+                    'description' => 'Worked in executive marketing at PT. TIGA DUA PROPERTY.',
+                ],
+                [
+                    'role' => 'Founder & Owner',
+                    'company' => 'Candice Wholesale Denim Trading Company',
+                    'period' => '2012 - Present',
+                    'description' => 'Developing and operating my own wholesale denim trading company.',
                 ],
             ],
         ];
 
         return view('home', [
-            'projects' => $projects,
             'profile' => $profile,
+            'instagramUrl' => $instagramUrl,
+            'instagramUsername' => $instagramUsername,
         ]);
     }
 }
